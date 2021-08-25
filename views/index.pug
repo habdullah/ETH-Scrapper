@@ -1,0 +1,62 @@
+doctype html
+head
+  title ETH Scrapper 
+header
+  h4 Get ETH account transaction history
+form(action='/get' method='POST')
+  div
+    label EtherScan API key
+    input#key(type='text' name='apikey' required='')
+    br
+  div
+    label Address
+    input#addr(type='text' name='address' required='')
+    br
+  div
+    label Block Range from 
+    input#floor(type='number' name='floor' required='')
+  div
+    label to 
+    input#ceiling(type='number' name='ceiling' required='')
+    br
+    br
+  button(type='submit') Submit
+  br
+  br
+div Results
+table
+  tr
+    td Block Number
+    td Tx Hash
+    td From
+    td To
+    td Gas Used
+  tbody
+    each tx in txdata.result
+      tr 
+        td #{tx.blockNumber}
+        td #{tx.hash}
+        td #{tx.from}
+        td #{tx.to}
+        td #{tx.gas}
+
+style(type="text/css").
+  table tr td {
+    border:1px solid black
+  }
+  form {
+    width: 45%;
+    margin 20px;
+  }
+  body {
+    background-color: #f0e68c;
+  }
+  div {
+    margin-bottom: 10px;
+    }
+  label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    margin-right: 10px;
+    }
