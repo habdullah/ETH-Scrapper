@@ -49,7 +49,8 @@ app.post('/get', function(req, res){
       txdata = "No records";
     }
     txdata = JSON.parse(txdata);
-    res.render("index", { tx: txdata });
+    console.log("Request fullfilled.")
+    res.render("index", { 'txdata': txdata });
   })();
 });
 

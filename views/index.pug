@@ -31,15 +31,16 @@ table
     td From
     td To
     td Gas Used
-  tbody
-    each tx in txdata.result
-      tr 
-        td #{tx.blockNumber}
-        td #{tx.hash}
-        td #{tx.from}
-        td #{tx.to}
-        td #{tx.gas}
-
+    - if (typeof(txdata) !== 'undefined'){
+      tbody
+        each tx in txdata.result
+          tr
+            td #{tx.blockNumber}
+            td #{tx.hash}
+            td #{tx.from}
+            td #{tx.to}
+            td #{tx.gas}
+    -}
 style(type="text/css").
   table tr td {
     border:1px solid black
